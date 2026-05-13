@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제1회 한·일 불교문화 축제</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & BASE ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background: #f5f2ed;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+
+/* ── VARIABLES ── */
+:root {
+  --teal: #3d7a6e;
+  --teal-dark: #2a5a50;
+  --teal-light: #5a9b8e;
+  --gold: #c9a84c;
+  --gold-light: #e4c878;
+  --gold-dark: #9a7a32;
+  --black: #f5f2ed;
+  --cream: #1a1a1a;
+  --nav-h: 72px;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(250,248,244,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-logo img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+.nav-logo-text { display: flex; flex-direction: column; }
+.nav-logo-text .t1 {
+  font-family: "Noto Serif KR", serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.nav-logo-text .t2 {
+  font-size: 10px;
+  color: rgba(80,70,50,0.6);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links > li { position: relative; }
+.nav-links > li > a {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(40,35,25,0.8);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  padding: 26px 2px;
+  display: block;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.nav-links > li > a:hover { color: var(--gold); }
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: rgba(252,250,246,0.99);
+  border: 1px solid rgba(201,168,76,0.28);
+  border-top: 2px solid var(--gold);
+  min-width: 130px;
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.22s ease;
+  border-radius: 0 0 8px 8px;
+}
+.nav-links > li:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.dropdown a {
+  display: block;
+  padding: 9px 18px;
+  font-size: 13px;
+  color: rgba(40,35,25,0.8);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s;
+}
+.dropdown a:hover {
+  color: var(--gold);
+  background: rgba(201,168,76,0.07);
+  padding-left: 24px;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(250,248,244,0.99);
+  z-index: 998;
+  padding: 96px 32px 40px;
+  overflow-y: auto;
+}
+.mobile-menu.open { display: block; }
+.mobile-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+  line-height: 1;
+  z-index: 999;
+}
+.m-sec { margin-bottom: 28px; }
+.m-sec-title {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+}
+.m-sec a {
+  display: block;
+  font-size: 18px;
+  font-family: "Noto Serif KR", serif;
+  color: rgba(40,35,25,0.85);
+  text-decoration: none;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.m-sec a:hover { color: var(--gold-dark); }
+
+/* ── PAGE SYSTEM ── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-h) + 60px) 24px 60px;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(61,122,110,0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 70% at 80% 20%, rgba(61,122,110,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(201,168,76,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(201,168,76,0.07) 79px, rgba(201,168,76,0.07) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(201,168,76,0.07) 79px, rgba(201,168,76,0.07) 80px);
+  pointer-events: none;
+}
+.hero-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.15);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.hero-ring.r1 { width: 500px; height: 500px; animation: pulse-r 6s ease-in-out infinite; }
+.hero-ring.r2 { width: 800px; height: 800px; border-color: rgba(201,168,76,0.08); animation: pulse-r 8s ease-in-out infinite 1.2s; }
+@keyframes pulse-r {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }
+}
+.hero-content { position: relative; z-index: 2; max-width: 680px; }
+.hero-img {
+  width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto 32px;
+  filter: drop-shadow(0 0 32px rgba(61,122,110,0.55));
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.hero-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.38);
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  background: rgba(201,168,76,0.055);
+  white-space: nowrap;
+}
+.hero-title {
+  font-family: "Noto Serif KR", serif;
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1109;
+  margin-bottom: 14px;
+}
+.hero-title em { color: var(--gold); font-style: normal; }
+.hero-slogan {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+  font-style: italic;
+  color: rgba(60,45,20,0.65);
+  margin-bottom: 44px;
+  letter-spacing: 0.05em;
+}
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-p {
+  padding: 13px 30px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.28s;
+  white-space: nowrap;
+}
+.btn-p:hover {
+  background: linear-gradient(135deg, var(--teal-light), var(--teal));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(61,122,110,0.38);
+}
+.btn-o {
+  padding: 13px 30px;
+  background: transparent;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(201,168,76,0.45);
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.28s;
+  white-space: nowrap;
+}
+.btn-o:hover {
+  background: rgba(201,168,76,0.09);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ── QUICK NAV ── */
+.quick-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+.quick-btn {
+  padding: 36px 20px;
+  text-align: center;
+  background: rgba(245,240,232,0.98);
+  border: none;
+  border-right: 1px solid rgba(201,168,76,0.18);
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.28s;
+}
+.quick-btn:last-child { border-right: none; }
+.quick-btn:hover { background: rgba(61,122,110,0.08); }
+.quick-btn .qi { font-size: 2rem; display: block; margin-bottom: 10px; }
+.quick-btn .qt { font-size: 13px; font-weight: 500; color: rgba(30,25,15,0.88); margin-bottom: 4px; }
+.quick-btn .qs { font-size: 11px; color: rgba(30,25,15,0.4); }
+
+/* ── COMMON PAGE PIECES ── */
+.page-top {
+  padding: calc(var(--nav-h) + 70px) 24px 52px;
+  text-align: center;
+  position: relative;
+}
+.page-top::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(61,122,110,0.07) 0%, transparent 100%);
+  pointer-events: none;
+}
+.pt-tag {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 14px;
+}
+.pt-title {
+  font-family: "Noto Serif KR", serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #1a1109;
+  display: block;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+.gold-bar {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 16px auto;
+}
+.pt-sub {
+  font-size: 13px;
+  color: rgba(40,35,20,0.55);
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── OVERVIEW ── */
+.ov-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 44px;
+}
+.ov-card {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 8px;
+  padding: 24px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.28s;
+}
+.ov-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--gold));
+  opacity: 0;
+  transition: opacity 0.28s;
+}
+.ov-card:hover { border-color: rgba(201,168,76,0.2); }
+.ov-card:hover::before { opacity: 1; }
+.ov-label {
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 9px;
+  display: block;
+}
+.ov-val {
+  font-family: "Noto Serif KR", serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1109;
+  line-height: 1.5;
+}
+.ov-val.sm { font-size: 14px; font-weight: 400; }
+.ov-val.italic { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 21px; color: var(--gold); }
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+  margin: 40px 0;
+}
+.sec-head { font-family: "Noto Serif KR", serif; font-size: 1.45rem; font-weight: 600; color: #1a1109; margin-bottom: 6px; }
+.sec-sub { font-size: 13px; color: rgba(40,35,20,0.5); margin-bottom: 24px; }
+.prose {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 8px;
+  padding: 28px 26px;
+  font-size: 14px;
+  color: rgba(40,35,20,0.72);
+  line-height: 2;
+}
+.prose strong { color: var(--teal-light); }
+
+/* ── SCHEDULE ── */
+.sched-tba {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 10px;
+  padding: 56px 24px;
+  text-align: center;
+  margin-bottom: 0;
+}
+.sched-tba-icon { font-size: 3rem; display: block; margin-bottom: 18px; }
+.sched-tba-t { font-family: "Noto Serif KR", serif; font-size: 1.3rem; color: rgba(40,35,20,0.6); margin-bottom: 10px; }
+.sched-tba-s { font-size: 13px; color: rgba(40,35,20,0.45); line-height: 1.8; }
+
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.tl-item {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  padding-bottom: 20px;
+}
+.tl-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 18px;
+}
+.tl-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--teal);
+  border: 2px solid #f5f2ed;
+  box-shadow: 0 0 0 2px rgba(61,122,110,0.3);
+  flex-shrink: 0;
+  margin-top: 16px;
+}
+.tl-dot.gold { background: var(--gold-dark); }
+.tl-dot.light { background: var(--teal-light); }
+.tl-dot.warm { background: #8a6244; }
+.tl-line {
+  width: 1px;
+  flex: 1;
+  background: rgba(61,122,110,0.28);
+  margin-top: 4px;
+}
+.tl-item:last-child .tl-line { display: none; }
+.tl-body {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 8px;
+  padding: 14px 18px;
+  flex: 1;
+  min-width: 0;
+}
+.tl-tag {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--teal-light);
+  display: block;
+  margin-bottom: 4px;
+}
+.tl-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(30,25,15,0.88);
+}
+
+/* ── VENUE ── */
+.venue-card {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 10px;
+  padding: 28px 26px;
+  margin-bottom: 20px;
+}
+.v-label { font-size: 9px; letter-spacing: 0.24em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; display: block; }
+.v-name { font-family: "Noto Serif KR", serif; font-size: 19px; font-weight: 600; color: #1a1109; margin-bottom: 16px; }
+.v-row {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(40,35,20,0.65);
+  margin-bottom: 10px;
+  line-height: 1.65;
+  align-items: flex-start;
+}
+.v-icon { color: var(--teal-light); flex-shrink: 0; margin-top: 1px; }
+.map-ph {
+  background: rgba(61,122,110,0.05);
+  border: 1px solid rgba(61,122,110,0.18);
+  border-radius: 8px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(40,35,20,0.35);
+  font-size: 13px;
+  margin-top: 18px;
+  letter-spacing: 0.06em;
+}
+
+/* ── PROGRAM ── */
+.prog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+.prog-card {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 10px;
+  padding: 26px 18px 22px;
+  text-align: center;
+  transition: all 0.32s;
+}
+.prog-card:hover {
+  background: rgba(61,122,110,0.09);
+  border-color: rgba(61,122,110,0.38);
+  transform: translateY(-4px);
+}
+.prog-icon { font-size: 2.2rem; display: block; margin-bottom: 12px; }
+.prog-num { font-size: 9px; letter-spacing: 0.2em; color: var(--teal-light); display: block; margin-bottom: 6px; }
+.prog-name { font-family: "Noto Serif KR", serif; font-size: 15px; font-weight: 600; color: #1a1109; margin-bottom: 9px; }
+.prog-desc { font-size: 12px; color: rgba(40,35,20,0.5); line-height: 1.75; }
+
+/* ── FOOD ── */
+.food-notice {
+  background: rgba(61,122,110,0.1);
+  border: 1px solid rgba(61,122,110,0.28);
+  border-left: 3px solid var(--teal);
+  border-radius: 6px;
+  padding: 18px 22px;
+  margin-bottom: 44px;
+  font-size: 13px;
+  color: rgba(40,35,20,0.72);
+  line-height: 1.9;
+}
+.food-notice strong { color: var(--teal-dark); }
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.food-card {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 10px;
+  padding: 22px 20px;
+  transition: all 0.28s;
+}
+.food-card:hover {
+  border-color: rgba(201,168,76,0.22);
+  background: rgba(201,168,76,0.045);
+}
+.fc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.fc-emoji { font-size: 1.8rem; flex-shrink: 0; }
+.fc-name { font-family: "Noto Serif KR", serif; font-size: 15px; font-weight: 600; color: #1a1109; }
+.fc-type { font-size: 10px; letter-spacing: 0.14em; color: var(--gold); }
+.fc-items { font-size: 13px; color: rgba(40,35,20,0.62); line-height: 1.9; margin-bottom: 12px; }
+.fc-price {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold-light);
+  background: rgba(201,168,76,0.09);
+  border-radius: 20px;
+  padding: 3px 12px;
+}
+.truck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+.truck-card {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 8px;
+  padding: 18px 14px;
+  text-align: center;
+  transition: all 0.28s;
+}
+.truck-card:hover {
+  border-color: rgba(61,122,110,0.28);
+  background: rgba(61,122,110,0.07);
+}
+.truck-icon { font-size: 1.5rem; display: block; margin-bottom: 8px; }
+.truck-name { font-size: 13px; font-weight: 600; color: #1a1109; margin-bottom: 5px; }
+.truck-items { font-size: 12px; color: rgba(40,35,20,0.55); line-height: 1.75; margin-bottom: 8px; }
+.truck-price { font-size: 12px; color: var(--teal-light); font-weight: 500; }
+
+/* ── NOTICE ── */
+.notice-intro {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 8px;
+  padding: 26px 24px;
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 13px;
+  color: rgba(40,35,20,0.55);
+  line-height: 1.9;
+}
+.notice-item {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 10px;
+  padding: 24px 26px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: all 0.28s;
+}
+.notice-item:hover {
+  border-color: rgba(61,122,110,0.28);
+  background: rgba(61,122,110,0.055);
+  padding-left: 32px;
+}
+.n-badges { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; }
+.n-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 2px 9px;
+  border-radius: 20px;
+}
+.badge-new {
+  background: rgba(61,122,110,0.2);
+  color: var(--teal-light);
+  border: 1px solid rgba(61,122,110,0.38);
+}
+.badge-warn {
+  background: rgba(220,140,40,0.18);
+  color: #e4a84c;
+  border: 1px solid rgba(220,140,40,0.35);
+}
+.badge-info {
+  background: rgba(60,110,200,0.18);
+  color: #7aadee;
+  border: 1px solid rgba(60,110,200,0.35);
+}
+.n-title {
+  font-family: "Noto Serif KR", serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1109;
+  margin-bottom: 6px;
+}
+.n-date { font-size: 12px; color: rgba(40,35,20,0.45); }
+
+/* ── FAQ ── */
+.faq-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+.faq-tab {
+  padding: 7px 18px;
+  font-size: 12px;
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 24px;
+  color: rgba(40,35,20,0.55);
+  cursor: pointer;
+  transition: all 0.22s;
+  white-space: nowrap;
+}
+.faq-tab:hover, .faq-tab.on {
+  background: rgba(61,122,110,0.18);
+  border-color: var(--teal);
+  color: var(--teal-light);
+}
+.faq-item { border-bottom: 1px solid rgba(201,168,76,0.15); }
+.faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  color: rgba(30,25,15,0.88);
+  font-family: "Noto Serif KR", serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--gold); }
+.faq-chev { font-size: 16px; color: var(--gold); flex-shrink: 0; transition: transform 0.3s; }
+.faq-q.open .faq-chev { transform: rotate(180deg); }
+.faq-a {
+  font-size: 13px;
+  color: rgba(40,35,20,0.6);
+  line-height: 1.95;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s ease, padding-bottom 0.28s;
+}
+.faq-a.open { max-height: 280px; padding-bottom: 20px; }
+
+/* ── GALLERY ── */
+.gal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.gal-item {
+  background: rgba(61,122,110,0.06);
+  border: 1px solid rgba(61,122,110,0.18);
+  border-radius: 6px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(40,35,20,0.25);
+  font-size: 2rem;
+  transition: all 0.28s;
+}
+.gal-item:hover {
+  background: rgba(61,122,110,0.14);
+  border-color: rgba(61,122,110,0.32);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: rgba(245,240,230,0.99);
+  border-top: 1px solid rgba(201,168,76,0.28);
+  padding: 52px 24px 34px;
+  text-align: center;
+}
+footer img { width: 52px; height: auto; display: block; margin: 0 auto 18px; opacity: 0.65; }
+.ft-title { font-family: "Noto Serif KR", serif; font-size: 14px; font-weight: 600; color: var(--gold); margin-bottom: 16px; letter-spacing: 0.04em; }
+.ft-info { font-size: 12px; color: rgba(40,35,20,0.5); line-height: 2; margin-bottom: 22px; }
+.ft-line { width: 36px; height: 1px; background: rgba(201,168,76,0.28); margin: 0 auto 18px; }
+.ft-copy { font-size: 10px; color: rgba(40,35,20,0.35); letter-spacing: 0.05em; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 767px) {
+  nav { padding: 0 18px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-logo-text .t1 { font-size: 10px; }
+  .quick-nav { grid-template-columns: repeat(2, 1fr); }
+  .quick-btn { padding: 28px 14px; }
+}
+@media (max-width: 500px) {
+  .hero-title { font-size: 1.9rem; }
+  .wrap { padding: 0 16px 60px; }
+  .ov-grid { grid-template-columns: 1fr; }
+}
+
+/* ── ADMIN PANEL ── */
+#admin-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9000;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--teal);
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  box-shadow: 0 4px 18px rgba(61,122,110,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+  color: #fff;
+}
+#admin-fab:hover { transform: scale(1.1); background: var(--teal); }
+
+#admin-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: 9100;
+  align-items: center;
+  justify-content: center;
+}
+#admin-overlay.open { display: flex; }
+
+#admin-panel {
+  background: #faf8f4;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 14px;
+  width: min(560px, 95vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px 28px 28px;
+  position: relative;
+}
+#admin-panel h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+.admin-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(40,35,20,0.45);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+.admin-close:hover { color: var(--gold); }
+
+/* password screen */
+#admin-pw-screen { text-align: center; }
+#admin-pw-screen p { color: rgba(40,35,20,0.6); font-size: 13px; margin-bottom: 16px; }
+#admin-pw-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 8px;
+  color: #1a1a1a;
+  font-size: 16px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  outline: none;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+#admin-pw-input:focus { border-color: var(--gold); }
+#admin-pw-error { color: #e05a5a; font-size: 12px; min-height: 18px; margin-bottom: 10px; }
+#admin-pw-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--gold);
+  color: #0a0a0a;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#admin-pw-btn:hover { background: var(--gold-light); }
+
+/* edit screen */
+#admin-edit-screen { display: none; }
+.admin-section {
+  border-top: 1px solid rgba(201,168,76,0.18);
+  padding-top: 20px;
+  margin-top: 20px;
+}
+.admin-section:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+.admin-label {
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+.admin-input, .admin-textarea {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 7px;
+  color: #1a1a1a;
+  font-size: 13px;
+  padding: 10px 12px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.admin-input:focus, .admin-textarea:focus { border-color: var(--gold); }
+.admin-textarea { resize: vertical; min-height: 80px; }
+.admin-row { margin-bottom: 14px; }
+.admin-notice-block {
+  background: rgba(245,240,230,0.7);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.admin-notice-del {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: rgba(40,35,20,0.35);
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+}
+.admin-notice-del:hover { color: #e05a5a; }
+.admin-add-btn {
+  width: 100%;
+  padding: 10px;
+  background: rgba(201,168,76,0.12);
+  border: 1px dashed rgba(201,168,76,0.4);
+  border-radius: 8px;
+  color: var(--gold);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 6px;
+}
+.admin-add-btn:hover { background: rgba(201,168,76,0.22); }
+.admin-save-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 6px;
+}
+.admin-save-btn:hover { background: var(--teal-light); }
+.admin-save-ok {
+  text-align: center;
+  color: var(--teal-light);
+  font-size: 12px;
+  min-height: 18px;
+  margin-top: 8px;
+}
+.badge-select {
+  background: #fff;
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 7px;
+  color: #1a1a1a;
+  font-size: 13px;
+  padding: 8px 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+
+/* ── GALLERY (fetch-based) ── */
+.gal-album-title {
+  font-family: "Noto Serif KR", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1109;
+  margin: 32px 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(201,168,76,0.25);
+}
+.gal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.gal-item {
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: rgba(61,122,110,0.06);
+  border: 1px solid rgba(61,122,110,0.18);
+  cursor: pointer;
+  transition: all 0.28s;
+}
+.gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s;
+}
+.gal-item:hover { border-color: rgba(201,168,76,0.4); box-shadow: 0 4px 16px rgba(61,122,110,0.15); }
+.gal-item:hover img { transform: scale(1.05); }
+.gal-empty {
+  text-align: center;
+  padding: 56px 24px;
+  color: rgba(40,35,20,0.38);
+  font-size: 13px;
+  background: rgba(245,240,230,0.6);
+  border: 1px dashed rgba(201,168,76,0.25);
+  border-radius: 10px;
+}
+.gal-empty .gal-empty-icon { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+
+/* lightbox */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,8,5,0.92);
+  z-index: 9500;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox.open { display: flex; }
+#lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+}
+#lb-close {
+  position: absolute;
+  top: 20px; right: 28px;
+  font-size: 32px;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: color 0.2s;
+}
+#lb-close:hover { color: var(--gold); }
+#lb-prev, #lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+#lb-prev { left: 20px; }
+#lb-next { right: 20px; }
+#lb-prev:hover, #lb-next:hover { background: rgba(201,168,76,0.3); color: #fff; }
+#lb-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
+}
+
+/* loading spinner */
+.data-loading {
+  text-align: center;
+  padding: 48px;
+  color: rgba(40,35,20,0.4);
+  font-size: 13px;
+}
+.spinner {
+  width: 32px; height: 32px;
+  border: 2px solid rgba(61,122,110,0.2);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.data-error {
+  background: rgba(220,80,60,0.06);
+  border: 1px solid rgba(220,80,60,0.2);
+  border-radius: 8px;
+  padding: 20px 24px;
+  font-size: 13px;
+  color: rgba(180,60,40,0.9);
+  margin-bottom: 16px;
+}
+
+/* notice content expand */
+.notice-item .n-content {
+  font-size: 13px;
+  color: rgba(40,35,20,0.6);
+  line-height: 1.8;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding-top 0.28s;
+}
+.notice-item.expanded .n-content {
+  max-height: 200px;
+  padding-top: 10px;
+}
+.notice-item .n-toggle {
+  font-size: 11px;
+  color: var(--teal);
+  cursor: pointer;
+  margin-top: 6px;
+  display: inline-block;
+  letter-spacing: 0.04em;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <img src="https://seokhyeon718.github.io/konyang/japan-logo.png" alt="로고">
+    <div class="nav-logo-text">
+      <span class="t1">제1회 한·일 불교문화 축제</span>
+      <span class="t2">Korea · Japan Buddhist Culture Festival</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a onclick="showPage('overview')">축제소개</a>
+      <div class="dropdown">
+        <a onclick="showPage('overview')">개요</a>
+      </div>
+    </li>
+    <li>
+      <a onclick="showPage('schedule')">행사안내</a>
+      <div class="dropdown">
+        <a onclick="showPage('schedule')">축제일정</a>
+        <a onclick="showPage('venue')">축제장 안내</a>
+        <a onclick="showPage('program')">프로그램</a>
+        <a onclick="showPage('food')">먹거리</a>
+      </div>
+    </li>
+    <li>
+      <a onclick="showPage('notice')">정보마당</a>
+      <div class="dropdown">
+        <a onclick="showPage('notice')">공지사항</a>
+        <a onclick="showPage('faq')">자주 하는 질문</a>
+        <a onclick="showPage('gallery')">갤러리</a>
+      </div>
+    </li>
+  </ul>
+  <button class="hamburger" onclick="openMob()" aria-label="메뉴">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ MOBILE MENU ═══ -->
+<div class="mobile-menu" id="mob">
+  <button class="mobile-close" onclick="closeMob()">✕</button>
+  <div class="m-sec">
+    <div class="m-sec-title">축제소개</div>
+    <a onclick="go('overview')">개요</a>
+  </div>
+  <div class="m-sec">
+    <div class="m-sec-title">행사안내</div>
+    <a onclick="go('schedule')">축제일정</a>
+    <a onclick="go('venue')">축제장 안내</a>
+    <a onclick="go('program')">프로그램</a>
+    <a onclick="go('food')">먹거리</a>
+  </div>
+  <div class="m-sec">
+    <div class="m-sec-title">정보마당</div>
+    <a onclick="go('notice')">공지사항</a>
+    <a onclick="go('faq')">자주 하는 질문</a>
+    <a onclick="go('gallery')">갤러리</a>
+  </div>
+</div>
+
+<!-- ═══════════ HOME ═══════════ -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-ring r1"></div>
+    <div class="hero-ring r2"></div>
+    <div class="hero-content">
+      <img class="hero-img" src="https://seokhyeon718.github.io/konyang/japan-logo.png" alt="한일불교문화축제 로고">
+      <div class="hero-badge">2026 · 충청남도 논산시 · DYC</div>
+      <h1 class="hero-title">제 1회 한·일<br><em>불교문화 축제</em></h1>
+      <p class="hero-slogan">"문화의 길에 도래하다"</p>
+      <div class="hero-btns">
+        <button class="btn-p" onclick="showPage('schedule')">일정 보기</button>
+        <button class="btn-o" onclick="showPage('overview')">축제 소개</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="quick-nav">
+    <button class="quick-btn" onclick="showPage('schedule')">
+      <span class="qi">🗓</span>
+      <div class="qt">축제일정</div>
+      <div class="qs">Schedule</div>
+    </button>
+    <button class="quick-btn" onclick="showPage('venue')">
+      <span class="qi">📍</span>
+      <div class="qt">축제장 안내</div>
+      <div class="qs">Venue</div>
+    </button>
+    <button class="quick-btn" onclick="showPage('program')">
+      <span class="qi">🪷</span>
+      <div class="qt">프로그램</div>
+      <div class="qs">Programs</div>
+    </button>
+    <button class="quick-btn" onclick="showPage('food')">
+      <span class="qi">🍱</span>
+      <div class="qt">먹거리</div>
+      <div class="qs">Food</div>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<div class="page" id="page-overview">
+  <div class="page-top">
+    <span class="pt-tag">Festival Overview</span>
+    <span class="pt-title">축제 개요</span>
+    <div class="gold-bar"></div>
+    <span class="pt-sub">제 1회 한·일 불교문화 축제에 오신 것을 환영합니다</span>
+  </div>
+  <div class="wrap">
+    <div class="ov-grid">
+      <div class="ov-card">
+        <span class="ov-label">Festival Name</span>
+        <div class="ov-val">제 1회 한·일<br>불교문화 축제</div>
+      </div>
+      <div class="ov-card">
+        <span class="ov-label">Slogan</span>
+        <div class="ov-val italic">문화의 길에 도래하다</div>
+      </div>
+      <div class="ov-card">
+        <span class="ov-label">Location</span>
+        <div class="ov-val sm">충청남도 논산시<br>대학로 121</div>
+      </div>
+      <div class="ov-card">
+        <span class="ov-label">Contact</span>
+        <div class="ov-val sm">문의전화 : 2026-0620</div>
+      </div>
+      <div class="ov-card">
+        <span class="ov-label">Organizer</span>
+        <div class="ov-val sm">2026 DYC<br>일본문화소통 한일불교문화축제</div>
+      </div>
+      <div class="ov-card">
+        <span class="ov-label">Main Programs</span>
+        <div class="ov-val sm">EDM 축제 · 드론쇼<br>스탬프투어 · 먹거리존</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="sec-head">축제 소개</div>
+    <div class="sec-sub">한국과 일본의 불교문화가 만나는 특별한 축제</div>
+    <div class="prose">
+      2026 DYC 일본문화소통 그룹이 주최하는 <strong>제 1회 한·일 불교문화 축제</strong>는
+      한국과 일본의 전통 불교문화를 한자리에서 체험할 수 있는 특별한 문화 교류의 장입니다.<br><br>
+      "문화의 길에 도래하다"라는 슬로건 아래, 양국의 전통 예술, 음악, 음식,
+      그리고 불교적 가치를 담은 다양한 프로그램을 통해 문화적 상호이해와
+      우정을 나누는 특별한 경험을 선사합니다.<br><br>
+      EDM 축제와 드론쇼 등 현대적 감성과 전통문화가 조화를 이루는 이번 행사는
+      충청남도 논산시에서 개최됩니다.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ SCHEDULE ═══════════ -->
+<div class="page" id="page-schedule">
+  <div class="page-top">
+    <span class="pt-tag">Festival Schedule</span>
+    <span class="pt-title">축제 일정</span>
+    <div class="gold-bar"></div>
+    <span class="pt-sub">자세한 일정은 추후 공지될 예정입니다</span>
+  </div>
+  <div class="wrap" id="schedule-wrap">
+    <div class="data-loading"><div class="spinner"></div>일정을 불러오는 중...</div>
+  </div>
+</div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot gold"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <span class="tl-tag">ACTIVITY</span>
+          <div class="tl-name">스탬프투어 — 8개 부스 체험</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot light"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <span class="tl-tag">FOOD</span>
+          <div class="tl-name">먹거리존 &amp; 푸드트럭존 운영</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot warm"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-body">
+          <span class="tl-tag">EXPERIENCE</span>
+          <div class="tl-name">한·일 전통 불교문화 체험</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ VENUE ═══════════ -->
+<div class="page" id="page-venue">
+  <div class="page-top">
+    <span class="pt-tag">Venue Guide</span>
+    <span class="pt-title">축제장 안내</span>
+    <div class="gold-bar"></div>
+    <span class="pt-sub">행사 장소 및 오시는 길 안내</span>
+  </div>
+  <div class="wrap">
+    <div class="venue-card">
+      <span class="v-label">Main Venue</span>
+      <div class="v-name">충청남도 논산시 대학로 121</div>
+      <div class="v-row"><span class="v-icon">📍</span><span>충청남도 논산시 대학로 121<br>2026 DYC 일본문화소통 한일불교문화축제</span></div>
+      <div class="v-row"><span class="v-icon">📞</span><span>문의전화 : 2026-0620</span></div>
+      <div class="map-ph">🗺 지도 정보가 추후 업데이트될 예정입니다</div>
+    </div>
+    <div class="venue-card">
+      <span class="v-label">Access Info</span>
+      <div class="v-name">오시는 방법</div>
+      <div class="v-row"><span class="v-icon">🚗</span><span>자가용 이용 시 — 논산시 대학로 121 목적지 설정<br>주차 안내는 추후 공지 예정입니다</span></div>
+      <div class="v-row"><span class="v-icon">🚌</span><span>대중교통 이용 시 — 자세한 교통편 안내는 추후 공지 예정입니다</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PROGRAM ═══════════ -->
+<div class="page" id="page-program">
+  <div class="page-top">
+    <span class="pt-tag">Festival Programs</span>
+    <span class="pt-title">축제 부스 소개</span>
+    <div class="gold-bar"></div>
+    <span class="pt-sub">입국심사부터 출국심사까지, 문화의 여정을 경험하세요</span>
+  </div>
+  <div class="wrap">
+    <div class="prog-grid">
+      <div class="prog-card">
+        <span class="prog-icon">🛂</span>
+        <span class="prog-num">Booth 01</span>
+        <div class="prog-name">입국심사</div>
+        <div class="prog-desc">축제의 시작, 문화 여행의 첫 관문에서 특별한 체험 활동이 여러분을 맞이합니다.</div>
+      </div>
+      <div class="prog-card">
+        <span class="prog-icon">🕯</span>
+        <span class="prog-num">Booth 02</span>
+        <div class="prog-name">빛을 빚는 공방</div>
+        <div class="prog-desc">전통 종이 공예의 아름다움을 직접 경험해 보세요.</div>
+      </div>
+      <div class="prog-card">
+        <span class="prog-icon">🪢</span>
+        <span class="prog-num">Booth 03</span>
+        <div class="prog-name">인연의 매듭</div>
+        <div class="prog-desc">도심 속 작은 안식처와 같은 정원 예술을 소개합니다.</div>
+      </div>
+      <div class="prog-card">
+        <span class="prog-icon">📖</span>
+        <span class="prog-num">Booth 04</span>
+        <div class="prog-name">기록관</div>
+        <div class="prog-desc">고운 선율의 전통 음악을 감상할 수 있는 공간입니다.</div>
+      </div>
+      <div class="prog-card">
+        <span class="prog-icon">🎵</span>
+        <span class="prog-num">Booth 05</span>
+        <div class="prog-name">소리 수련장</div>
+        <div class="prog-desc">오감을 만족시키는 전통 체험을 경험해 보세요.</div>
+      </div>
+      <div class="prog-card">
+        <span class="prog-icon">🌸</span>
+        <span class="prog-num">Booth 06</span>
+        <div class="prog-name">향기 쉼터</div>
+        <div class="prog-desc">붓끝에서 피어나는 예술의 선을 감상하세요.</div>
+      </div>
+      <div class="prog-card">
+        <span class="prog-icon">🍵</span>
+        <span class="prog-num">Booth 07</span>
+        <div class="prog-name">지혜의 식탁</div>
+        <div class="prog-desc">누구나 즐겁게 참여할 수 있는 놀이의 장입니다.</div>
+      </div>
+      <div class="prog-card">
+        <span class="prog-icon">🛃</span>
+        <span class="prog-num">Booth 08</span>
+        <div class="prog-name">출국심사</div>
+        <div class="prog-desc">일본 전통 다도의 정수를 느낄 수 있는 공간입니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ FOOD ═══════════ -->
+<div class="page" id="page-food">
+  <div class="page-top">
+    <span class="pt-tag">Food Guide</span>
+    <span class="pt-title">먹거리 안내</span>
+    <div class="gold-bar"></div>
+    <span class="pt-sub">불교 오신채 없이 정성껏 준비한 먹거리</span>
+  </div>
+  <div class="wrap">
+    <div class="food-notice">
+      <strong>🌿 오신채 없는 음식</strong><br>
+      모든 음식은 불교에서 수행을 방해한다고 여기는 다섯 가지 매운 채소인 <strong>오신채(마늘, 파, 부추, 달래, 흥거)</strong> 없이 만든 음식입니다.<br><br>
+      💳 결제는 <strong>현금 및 카드 모두 가능</strong>하며, 일부 인기 메뉴는 조기 소진될 수 있으니 참고 부탁드립니다.<br>
+      ♻️ 친환경 축제를 위해 <strong>다회용기 사용</strong>을 권장하고 있습니다.
+    </div>
+    <div class="sec-head">정성이 깃든 음식 부스</div>
+    <div class="sec-sub">Food Stalls</div>
+    <div class="food-grid">
+      <div class="food-card">
+        <div class="fc-head"><span class="fc-emoji">🌿</span><div><div class="fc-name">숲의 식탁</div><div class="fc-type">Food Stall</div></div></div>
+        <div class="fc-items">묵밥, 버섯 강정, 연잎 주먹밥<br>부침개, 구운 채소 비빔당면</div>
+        <span class="fc-price">10,000원 ~ 15,000원</span>
+      </div>
+      <div class="food-card">
+        <div class="fc-head"><span class="fc-emoji">🍡</span><div><div class="fc-name">동그라미 상점</div><div class="fc-type">Food Stall</div></div></div>
+        <div class="fc-items">구운 당고, 참깨 푸딩, 물방울떡<br>안미츠, 과일 찹쌀떡</div>
+        <span class="fc-price">10,000원 ~ 15,000원</span>
+      </div>
+      <div class="food-card">
+        <div class="fc-head"><span class="fc-emoji">🍵</span><div><div class="fc-name">다온 (茶穩)</div><div class="fc-type">Tea &amp; Drinks</div></div></div>
+        <div class="fc-items">녹차, 메밀차, 호지차<br>말차라떼, 오미자에이드, 매실에이드</div>
+        <span class="fc-price">6,000원</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="sec-head">활기 넘치는 푸드트럭</div>
+    <div class="sec-sub">Food Trucks</div>
+    <div class="truck-grid">
+      <div class="truck-card"><span class="truck-icon">🌀</span><div class="truck-name">미스터블랙</div><div class="truck-items">회오리감자, 떡볶이</div><div class="truck-price">5,000원</div></div>
+      <div class="truck-card"><span class="truck-icon">🥨</span><div class="truck-name">원츄</div><div class="truck-items">츄러스, 꽈배기</div><div class="truck-price">3,000원</div></div>
+      <div class="truck-card"><span class="truck-icon">🍦</span><div class="truck-name">하우 푸드</div><div class="truck-items">음료, 소르베, 아이스크림</div><div class="truck-price">3,500원 ~ 5,500원</div></div>
+      <div class="truck-card"><span class="truck-icon">🍕</span><div class="truck-name">피자 트리</div><div class="truck-items">조각피자</div><div class="truck-price">6,000원</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ NOTICE ═══════════ -->
+<div class="page" id="page-notice">
+  <div class="page-top">
+    <span class="pt-tag">Notice Board</span>
+    <span class="pt-title">공지사항</span>
+    <div class="gold-bar"></div>
+    <span class="pt-sub">한일 불교문화 축제의 새로운 소식과 주요 안내 사항</span>
+  </div>
+  <div class="wrap" id="notice-wrap">
+    <div class="data-loading"><div class="spinner"></div>공지사항을 불러오는 중...</div>
+  </div>
+</div>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<div class="page" id="page-faq">
+  <div class="page-top">
+    <span class="pt-tag">FAQ</span>
+    <span class="pt-title">자주 하는 질문</span>
+    <div class="gold-bar"></div>
+    <span class="pt-sub">궁금한 점을 확인해 보세요</span>
+  </div>
+  <div class="wrap">
+    <div class="faq-tabs">
+      <button class="faq-tab on" onclick="setTab(this,'all')">전체</button>
+      <button class="faq-tab" onclick="setTab(this,'intro')">축제기획</button>
+      <button class="faq-tab" onclick="setTab(this,'ops')">운영</button>
+      <button class="faq-tab" onclick="setTab(this,'prog')">프로그램</button>
+      <button class="faq-tab" onclick="setTab(this,'conv')">편의사항</button>
+    </div>
+    <div id="faq-list">
+      <div class="faq-item" data-c="intro">
+        <button class="faq-q" onclick="toggleFaq(this)">왜 이런 축제를 만들게 되었나요?<span class="faq-chev">▾</span></button>
+        <div class="faq-a">한국과 일본의 불교문화 교류를 통해 양국의 상호 이해를 높이고자 기획되었습니다. 전통 문화를 현대적 감성으로 재해석하여 더 많은 분들이 불교문화를 친숙하게 접할 수 있는 장을 마련하고자 합니다.</div>
+      </div>
+      <div class="faq-item" data-c="intro">
+        <button class="faq-q" onclick="toggleFaq(this)">축제 슬로건은 무슨 의미인가요?<span class="faq-chev">▾</span></button>
+        <div class="faq-a">"문화의 길에 도래하다"는 한국과 일본의 불교문화가 만나는 길, 그 여정에 함께 참여하자는 의미를 담고 있습니다. 문화 교류를 통해 새로운 인연을 맺고 함께 성장해 나가자는 메시지입니다.</div>
+      </div>
+      <div class="faq-item" data-c="intro">
+        <button class="faq-q" onclick="toggleFaq(this)">축제 기획자는 누구인가요?<span class="faq-chev">▾</span></button>
+        <div class="faq-a">2026 DYC 일본문화소통 그룹 2팀이 기획하였습니다. 자세한 문의는 2026-0620으로 연락주시기 바랍니다.</div>
+      </div>
+      <div class="faq-item" data-c="ops">
+        <button class="faq-q" onclick="toggleFaq(this)">입장료가 있나요?<span class="faq-chev">▾</span></button>
+        <div class="faq-a">입장료 관련 안내는 추후 공지사항을 통해 안내될 예정입니다.</div>
+      </div>
+      <div class="faq-item" data-c="conv">
+        <button class="faq-q" onclick="toggleFaq(this)">결제 수단은 어떻게 되나요?<span class="faq-chev">▾</span></button>
+        <div class="faq-a">먹거리 부스 및 푸드트럭의 결제는 현금 및 카드 모두 가능합니다. 일부 인기 메뉴는 조기 소진될 수 있으니 참고 바랍니다.</div>
+      </div>
+      <div class="faq-item" data-c="conv">
+        <button class="faq-q" onclick="toggleFaq(this)">친환경 활동에 대해 알 수 있나요?<span class="faq-chev">▾</span></button>
+        <div class="faq-a">본 축제는 친환경 축제를 지향합니다. 다회용기 사용을 권장하며, 음식은 오신채 없이 자연 친화적으로 준비됩니다.</div>
+      </div>
+      <div class="faq-item" data-c="prog">
+        <button class="faq-q" onclick="toggleFaq(this)">스탬프투어는 어떻게 참여하나요?<span class="faq-chev">▾</span></button>
+        <div class="faq-a">입국심사(부스 1)부터 출국심사(부스 8)까지 8개의 부스를 순서대로 방문하며 스탬프를 모을 수 있습니다. 자세한 안내는 축제 당일 안내처에서 확인하실 수 있습니다.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ GALLERY ═══════════ -->
+<div class="page" id="page-gallery">
+  <div class="page-top">
+    <span class="pt-tag">Gallery</span>
+    <span class="pt-title">갤러리</span>
+    <div class="gold-bar"></div>
+    <span class="pt-sub">축제의 아름다운 순간들을 담아드립니다</span>
+  </div>
+  <div class="wrap" id="gallery-wrap">
+    <div class="data-loading"><div class="spinner"></div>사진을 불러오는 중...</div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="site-footer" style="display:none">
+  <img src="https://seokhyeon718.github.io/konyang/japan-logo.png" alt="로고">
+  <div class="ft-title">제 1회 한·일 불교문화 축제</div>
+  <div class="ft-info">
+    주소 : 충청남도 논산시 대학로 121<br>
+    문의전화 : 2026-0620<br>
+    2026 DYC 일본문화소통 한일불교문화축제
+  </div>
+  <div class="ft-line"></div>
+  <div class="ft-copy">Copyright © 2026 DYC Japanese Cultural Communication Group 2. All Rights Reserved.</div>
+</footer>
+
+<!-- ═══════════ ADMIN FAB ═══════════ -->
+<button id="admin-fab" onclick="adminOpen()" title="관리자">⚙</button>
+
+<!-- ═══════════ ADMIN OVERLAY ═══════════ -->
+<div id="admin-overlay">
+  <div id="admin-panel">
+    <button class="admin-close" onclick="adminClose()">✕</button>
+
+    <!-- 비밀번호 화면 -->
+    <div id="admin-pw-screen">
+      <h2>🔒 관리자 로그인</h2>
+      <p>비밀번호를 입력하세요</p>
+      <input id="admin-pw-input" type="password" placeholder="••••" maxlength="8"
+        onkeydown="if(event.key==='Enter')adminLogin()">
+      <div id="admin-pw-error"></div>
+      <button id="admin-pw-btn" onclick="adminLogin()">확인</button>
+    </div>
+
+    <!-- 편집 화면 -->
+    <div id="admin-edit-screen">
+      <h2>✏️ 콘텐츠 편집</h2>
+
+      <!-- 메인화면 -->
+      <div class="admin-section">
+        <span class="admin-label">🏠 메인화면</span>
+        <div class="admin-row">
+          <label class="admin-label" style="font-size:10px;color:rgba(255,255,255,0.45);">배지 텍스트</label>
+          <input class="admin-input" id="ed-hero-badge" placeholder="예) 2026 · 충청남도 논산시 · DYC">
+        </div>
+        <div class="admin-row">
+          <label class="admin-label" style="font-size:10px;color:rgba(255,255,255,0.45);">메인 타이틀 (HTML 사용 가능)</label>
+          <input class="admin-input" id="ed-hero-title" placeholder="예) 제 1회 한·일&lt;br&gt;&lt;em&gt;불교문화 축제&lt;/em&gt;">
+        </div>
+        <div class="admin-row">
+          <label class="admin-label" style="font-size:10px;color:rgba(255,255,255,0.45);">슬로건</label>
+          <input class="admin-input" id="ed-hero-slogan" placeholder="예) 문화의 길에 도래하다">
+        </div>
+      </div>
+
+      <!-- 공지사항 -->
+      <div class="admin-section">
+        <span class="admin-label">📋 공지사항</span>
+        <div class="admin-row">
+          <label class="admin-label" style="font-size:10px;color:rgba(255,255,255,0.45);">소개 문구</label>
+          <textarea class="admin-textarea" id="ed-notice-intro" rows="2"></textarea>
+        </div>
+        <div id="ed-notice-list"></div>
+        <button class="admin-add-btn" onclick="adminAddNotice()">+ 공지 추가</button>
+      </div>
+
+      <!-- FAQ -->
+      <div class="admin-section">
+        <span class="admin-label">❓ 자주 하는 질문 (FAQ)</span>
+        <div id="ed-faq-list"></div>
+        <button class="admin-add-btn" onclick="adminAddFaq()">+ FAQ 추가</button>
+      </div>
+
+      <button class="admin-save-btn" onclick="adminSave()">💾 저장하기</button>
+      <div class="admin-save-ok" id="admin-save-ok"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button id="lb-close" onclick="closeLightbox()">✕</button>
+  <button id="lb-prev" onclick="lbPrev()">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button id="lb-next" onclick="lbNext()">›</button>
+  <div id="lb-caption"></div>
+</div>
+
+<script>
+var PAGES = ['home','overview','schedule','venue','program','food','notice','faq','gallery'];
+
+/* ── 페이지 전환 + URL 해시 라우팅 ── */
+function showPage(id, pushState) {
+  if (!PAGES.includes(id)) id = 'home';
+  PAGES.forEach(function(p) {
+    var el = document.getElementById('page-' + p);
+    if (el) el.classList.toggle('active', p === id);
+  });
+  document.getElementById('site-footer').style.display = (id === 'home') ? 'none' : 'block';
+  window.scrollTo(0, 0);
+  closeMob();
+  if (pushState !== false) {
+    var hash = id === 'home' ? '' : '#' + id;
+    if (window.location.hash !== hash)
+      history.pushState({ page: id }, '', window.location.pathname + (hash));
+  }
+  // 해당 페이지 데이터 로드
+  if (id === 'notice' && !noticeLoaded) loadNotices();
+  if (id === 'schedule' && !scheduleLoaded) loadSchedule();
+  if (id === 'gallery' && !galleryLoaded) loadGallery();
+}
+
+// 새로고침 복원
+(function() {
+  var hash = window.location.hash.replace('#','');
+  if (hash && PAGES.includes(hash)) showPage(hash, false);
+})();
+window.addEventListener('popstate', function(e) {
+  var id = (e.state && e.state.page) ? e.state.page : (window.location.hash.replace('#','') || 'home');
+  showPage(id, false);
+});
+
+function openMob()  { document.getElementById('mob').classList.add('open');    document.body.style.overflow = 'hidden'; }
+function closeMob() { document.getElementById('mob').classList.remove('open'); document.body.style.overflow = ''; }
+function go(p) { showPage(p); }
+
+function toggleFaq(btn) {
+  var ans = btn.nextElementSibling;
+  var isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(function(a){ a.classList.remove('open'); });
+  document.querySelectorAll('.faq-q.open').forEach(function(b){ b.classList.remove('open'); });
+  if (!isOpen) { ans.classList.add('open'); btn.classList.add('open'); }
+}
+function setTab(btn, cat) {
+  document.querySelectorAll('.faq-tab').forEach(function(t){ t.classList.remove('on'); });
+  btn.classList.add('on');
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.style.display = (cat === 'all' || item.dataset.c === cat) ? '' : 'none';
+  });
+}
+
+/* ═══════════════════════════════════════════════════
+   DATA LOADERS  (data/*.json → DOM 렌더링)
+═══════════════════════════════════════════════════ */
+var noticeLoaded = false, scheduleLoaded = false, galleryLoaded = false;
+
+/* ── 공지사항 ── */
+function loadNotices() {
+  var wrap = document.getElementById('notice-wrap');
+  fetch('data/notices.json?_=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(data) {
+      noticeLoaded = true;
+      var html = '';
+      // intro
+      if (data.intro) {
+        html += '<div class="notice-intro">' + escH(data.intro).replace(/\n/g,'<br>') + '</div>';
+      }
+      // items
+      if (data.items && data.items.length > 0) {
+        data.items.forEach(function(item) {
+          var badgeHtml = item.badge
+            ? '<div class="n-badges"><span class="n-badge ' + (item.badgeType||'badge-new') + '">' + escH(item.badge) + '</span></div>'
+            : '';
+          var dateHtml  = item.date    ? '<div class="n-date">' + escH(item.date) + '</div>' : '';
+          var contentHtml = item.content
+            ? '<div class="n-content">' + escH(item.content).replace(/\n/g,'<br>') + '</div>' +
+              '<span class="n-toggle" onclick="toggleNotice(this)">자세히 보기 ▾</span>'
+            : '';
+          html += '<div class="notice-item" onclick="expandNotice(this)">' +
+                  badgeHtml +
+                  '<div class="n-title">' + escH(item.title) + '</div>' +
+                  dateHtml + contentHtml +
+                  '</div>';
+        });
+      } else {
+        html += '<div class="notice-item" style="opacity:0.45;cursor:default;"><div class="n-title" style="font-size:13px;color:rgba(40,35,20,0.45);">추가 공지사항이 업데이트될 예정입니다</div></div>';
+      }
+      wrap.innerHTML = html;
+    })
+    .catch(function(err) {
+      noticeLoaded = false;
+      wrap.innerHTML = '<div class="data-error">⚠ 공지사항을 불러오지 못했습니다.<br><small>' + err.message + '</small></div>';
+    });
+}
+
+function expandNotice(item) {
+  item.classList.toggle('expanded');
+  var toggle = item.querySelector('.n-toggle');
+  if (toggle) toggle.textContent = item.classList.contains('expanded') ? '접기 ▴' : '자세히 보기 ▾';
+}
+function toggleNotice(el) { /* click bubbles to expandNotice */ }
+
+/* ── 일정 ── */
+function loadSchedule() {
+  var wrap = document.getElementById('schedule-wrap');
+  fetch('data/schedule.json?_=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(data) {
+      scheduleLoaded = true;
+      var html = '';
+
+      // TBA 박스
+      if (data.status === 'tba') {
+        html += '<div class="sched-tba">' +
+                '<span class="sched-tba-icon">📅</span>' +
+                '<div class="sched-tba-t">일정 준비 중</div>' +
+                '<div class="sched-tba-s">자세한 축제 일정은 공지사항을 통해 안내드릴 예정입니다<br>많은 관심 부탁드립니다</div>' +
+                '</div>';
+      }
+
+      // 이벤트 목록
+      if (data.events && data.events.length > 0) {
+        html += '<div class="divider"></div>' +
+                '<div class="sec-head">주요 프로그램 예고</div>' +
+                '<div class="sec-sub" style="margin-bottom:28px;">축제에서 만나볼 수 있는 다양한 경험들</div>' +
+                '<div class="timeline">';
+        var colorMap = { teal:'var(--teal)', gold:'var(--gold-dark)', light:'var(--teal-light)', warm:'#8a6244' };
+        data.events.forEach(function(ev, i) {
+          var dotColor = colorMap[ev.color] || 'var(--teal)';
+          var timeHtml = ev.time ? '<span class="tl-time" style="font-size:11px;color:var(--gold-dark);display:block;margin-bottom:2px;">' + escH(ev.time) + '</span>' : '';
+          var isLast = (i === data.events.length - 1);
+          html += '<div class="tl-item">' +
+                  '<div class="tl-left">' +
+                  '<div class="tl-dot" style="background:' + dotColor + '"></div>' +
+                  (isLast ? '' : '<div class="tl-line"></div>') +
+                  '</div>' +
+                  '<div class="tl-body">' +
+                  '<span class="tl-tag">' + escH(ev.type) + '</span>' +
+                  timeHtml +
+                  '<div class="tl-name">' + escH(ev.name) + '</div>' +
+                  '</div></div>';
+        });
+        html += '</div>';
+      }
+      wrap.innerHTML = html;
+    })
+    .catch(function(err) {
+      scheduleLoaded = false;
+      wrap.innerHTML = '<div class="data-error">⚠ 일정을 불러오지 못했습니다.<br><small>' + err.message + '</small></div>';
+    });
+}
+
+/* ── 갤러리 ── */
+var lbImages = [], lbIdx = 0;
+
+function loadGallery() {
+  var wrap = document.getElementById('gallery-wrap');
+  fetch('data/gallery.json?_=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(data) {
+      galleryLoaded = true;
+      var html = '';
+      var allImgs = [];
+
+      if (!data.albums || data.albums.length === 0) {
+        html = '<div class="gal-empty"><span class="gal-empty-icon">🪷</span>사진이 업로드될 예정입니다</div>';
+        wrap.innerHTML = html;
+        return;
+      }
+
+      data.albums.forEach(function(album) {
+        if (album.images && album.images.length > 0) {
+          html += '<div class="gal-album-title">📷 ' + escH(album.title) + '</div><div class="gal-grid">';
+          album.images.forEach(function(img) {
+            var src = typeof img === 'string' ? img : img.src;
+            var caption = typeof img === 'object' && img.caption ? img.caption : '';
+            var globalIdx = allImgs.length;
+            allImgs.push({ src: (album.folder ? album.folder + '/' : '') + src, caption: caption });
+            html += '<div class="gal-item" onclick="openLightbox(' + globalIdx + ')">' +
+                    '<img src="' + escAttr((album.folder ? album.folder + '/' : '') + src) + '" alt="' + escAttr(caption) + '" loading="lazy">' +
+                    '</div>';
+          });
+          html += '</div>';
+        } else {
+          html += '<div class="gal-album-title">📷 ' + escH(album.title) + '</div>' +
+                  '<div class="gal-empty"><span class="gal-empty-icon">🪷</span>' +
+                  '사진은 행사 이후 순차적으로 업로드될 예정입니다<br>' +
+                  '<span style="font-size:11px;color:rgba(40,35,20,0.3);margin-top:6px;display:block;">' +
+                  escH(album.folder) + '/ 폴더에 이미지를 추가하고<br>gallery.json의 images 배열에 파일명을 입력하세요</span></div>';
+        }
+      });
+
+      lbImages = allImgs;
+      wrap.innerHTML = html;
+    })
+    .catch(function(err) {
+      galleryLoaded = false;
+      wrap.innerHTML = '<div class="data-error">⚠ 갤러리를 불러오지 못했습니다.<br><small>' + err.message + '</small></div>';
+    });
+}
+
+function openLightbox(idx) {
+  lbIdx = idx;
+  var lb = document.getElementById('lightbox');
+  lb.classList.add('open');
+  renderLightbox();
+  document.addEventListener('keydown', lbKeyHandler);
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.removeEventListener('keydown', lbKeyHandler);
+}
+function lbKeyHandler(e) {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lbPrev();
+  if (e.key === 'ArrowRight') lbNext();
+}
+function lbPrev() { lbIdx = (lbIdx - 1 + lbImages.length) % lbImages.length; renderLightbox(); }
+function lbNext() { lbIdx = (lbIdx + 1) % lbImages.length; renderLightbox(); }
+function renderLightbox() {
+  var img = lbImages[lbIdx];
+  document.getElementById('lb-img').src = img.src;
+  document.getElementById('lb-caption').textContent = img.caption || ((lbIdx+1) + ' / ' + lbImages.length);
+  document.getElementById('lb-prev').style.display = lbImages.length > 1 ? 'flex' : 'none';
+  document.getElementById('lb-next').style.display = lbImages.length > 1 ? 'flex' : 'none';
+}
+
+/* ── 공통 유틸 ── */
+function escH(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function escAttr(s) {
+  return String(s||'').replace(/"/g,'&quot;');
+}
+
+/* ════════ ADMIN PANEL ════════ */
+var ADMIN_PW = '2022';
+var adminLoggedIn = false;
+
+function adminOpen() {
+  document.getElementById('admin-overlay').classList.add('open');
+  if (!adminLoggedIn) document.getElementById('admin-pw-input').focus();
+}
+function adminClose() {
+  document.getElementById('admin-overlay').classList.remove('open');
+  document.getElementById('admin-pw-input').value = '';
+  document.getElementById('admin-pw-error').textContent = '';
+}
+document.getElementById('admin-overlay').addEventListener('click', function(e){ if(e.target===this) adminClose(); });
+
+function adminLogin() {
+  var pw = document.getElementById('admin-pw-input').value;
+  if (pw === ADMIN_PW) {
+    adminLoggedIn = true;
+    document.getElementById('admin-pw-screen').style.display = 'none';
+    document.getElementById('admin-edit-screen').style.display = 'block';
+    adminShowJsonGuide();
+  } else {
+    document.getElementById('admin-pw-error').textContent = '비밀번호가 올바르지 않습니다.';
+    document.getElementById('admin-pw-input').value = '';
+    document.getElementById('admin-pw-input').focus();
+  }
+}
+
+function adminShowJsonGuide() {
+  document.getElementById('admin-edit-screen').innerHTML =
+    '<div class="admin-section">' +
+    '<div style="font-size:15px;font-weight:700;color:var(--teal-dark);margin-bottom:16px;">📂 GitHub에서 파일을 수정하세요</div>' +
+    '<p style="font-size:13px;color:rgba(40,35,20,0.7);line-height:1.9;margin-bottom:20px;">' +
+    '이 사이트의 데이터는 저장소의 JSON 파일로 관리됩니다.<br>' +
+    'GitHub에서 직접 수정하면 사이트에 바로 반영됩니다.</p>' +
+    makeFileGuide('📅 data/schedule.json', '축제 일정 수정', [
+      '• <b>status</b>: "tba" → 준비중 표시, "confirmed" → 일정 표시',
+      '• <b>events[].type</b>: 이벤트 유형 라벨',
+      '• <b>events[].name</b>: 이벤트 이름',
+      '• <b>events[].time</b>: 시간 (예: "14:00 ~ 15:00")',
+      '• <b>events[].color</b>: teal / gold / light / warm',
+    ]) +
+    makeFileGuide('📢 data/notices.json', '공지사항 수정', [
+      '• <b>intro</b>: 상단 소개 문구',
+      '• <b>items[].badge</b>: 뱃지 텍스트 (예: NEW)',
+      '• <b>items[].badgeType</b>: badge-new / badge-warn / badge-info',
+      '• <b>items[].title</b>: 공지 제목',
+      '• <b>items[].date</b>: 날짜 (예: 2026.06.20)',
+      '• <b>items[].content</b>: 상세 내용 (선택)',
+    ]) +
+    makeFileGuide('🖼 data/gallery.json', '갤러리 사진 추가', [
+      '• <b>albums[].folder</b>: 이미지 폴더 경로 (예: gallery/2026)',
+      '• <b>albums[].images[]</b>: 파일명 또는 {"src":"파일명","caption":"설명"}',
+      '• 이미지 파일은 해당 폴더에 직접 업로드하세요',
+      '• 지원 형식: jpg, jpeg, png, webp, gif',
+    ]) +
+    '<div style="margin-top:20px;padding:14px 16px;background:rgba(61,122,110,0.08);border:1px solid rgba(61,122,110,0.2);border-radius:8px;font-size:12px;color:rgba(40,35,20,0.65);line-height:1.8;">' +
+    '💡 <b>수정 방법:</b> GitHub 저장소 → 해당 파일 클릭 → ✏️ 연필 아이콘 → 수정 → Commit changes' +
+    '</div></div>';
+}
+
+function makeFileGuide(title, desc, tips) {
+  return '<div style="background:#fff;border:1px solid rgba(201,168,76,0.25);border-radius:8px;padding:16px;margin-bottom:14px;">' +
+    '<div style="font-size:13px;font-weight:700;color:#1a1109;margin-bottom:4px;">' + title + '</div>' +
+    '<div style="font-size:11px;color:var(--teal-dark);margin-bottom:10px;letter-spacing:0.04em;">' + desc + '</div>' +
+    '<ul style="font-size:12px;color:rgba(40,35,20,0.65);line-height:2;padding-left:0;list-style:none;">' +
+    tips.map(function(t){ return '<li>' + t + '</li>'; }).join('') +
+    '</ul></div>';
+}
+
+</script>
+</body>
+</html>
