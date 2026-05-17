@@ -6,24 +6,28 @@
       "type": "MAIN EVENT",
       "name": "EDM 축제 & 드론쇼",
       "time": "",
+      "desc": "",
       "color": "teal"
     },
     {
       "type": "ACTIVITY",
       "name": "스탬프투어 — 8개 부스 체험",
       "time": "",
+      "desc": "",
       "color": "gold"
     },
     {
       "type": "FOOD",
       "name": "먹거리존 & 푸드트럭존 운영",
       "time": "",
+      "desc": "",
       "color": "light"
     },
     {
       "type": "EXPERIENCE",
       "name": "한·일 전통 불교문화 체험",
       "time": "",
+      "desc": "",
       "color": "warm"
     }
   ]
