@@ -1,10 +1,34 @@
 {
-  "updated": "2026-05-01",
-  "status": "tba",
+  "updated": "2026-05-18",
+  "status": "confirmed",
   "events": [
-    {"type":"MAIN EVENT","name":"EDM 축제 & 드론쇼","time":"","desc":"","color":"teal"},
-    {"type":"ACTIVITY","name":"스탬프투어 — 8개 부스 체험","time":"","desc":"","color":"gold"},
-    {"type":"FOOD","name":"먹거리존 & 푸드트럭존 운영","time":"","desc":"","color":"light"},
-    {"type":"EXPERIENCE","name":"한·일 전통 불교문화 체험","time":"","desc":"","color":"warm"}
+    {
+      "type": "DAY 1 · 5월 22일",
+      "name": "개막식 — 픽토그램 쇼",
+      "time": "2026. 5. 22",
+      "desc": "",
+      "color": "teal"
+    },
+    {
+      "type": "DAY 2 · 5월 23일",
+      "name": "부스운영 — 도래인의 역사 뮤지컬",
+      "time": "2026. 5. 23",
+      "desc": "",
+      "color": "gold"
+    },
+    {
+      "type": "DAY 3 · 5월 24일 (석가탄신일)",
+      "name": "메인 프로그램 — 불꽃놀이 & 한·일 합작 드론쇼",
+      "time": "2026. 5. 24",
+      "desc": "석가탄신일 메인 행사",
+      "color": "light"
+    },
+    {
+      "type": "DAY 4 · 5월 25일",
+      "name": "폐막식 — EDM 페스티벌",
+      "time": "2026. 5. 25",
+      "desc": "스페셜 게스트: 뉴진스님",
+      "color": "warm"
+    }
   ]
 }
