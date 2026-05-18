@@ -359,9 +359,10 @@ nav {
 
 /* ── COMMON PAGE PIECES ── */
 .page-top {
-  padding: calc(var(--nav-h) + 70px) 24px 52px;
+  padding: calc(var(--nav-h) + 90px) 24px 52px;
   text-align: center;
   position: relative;
+  background: #f5f2ed;
 }
 .page-top::after {
   content: "";
@@ -778,27 +779,6 @@ nav {
 .faq-a.open { max-height: 280px; padding-bottom: 20px; }
 
 /* ── GALLERY ── */
-.gal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-}
-.gal-item {
-  background: rgba(61,122,110,0.07);
-  border: 1px solid rgba(61,122,110,0.14);
-  border-radius: 6px;
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(40,35,20,0.28);
-  font-size: 2rem;
-  transition: all 0.28s;
-}
-.gal-item:hover {
-  background: rgba(61,122,110,0.14);
-  border-color: rgba(61,122,110,0.32);
-}
 
 /* ── FOOTER ── */
 footer {
@@ -1061,7 +1041,6 @@ footer img { width: 52px; height: auto; display: block; margin: 0 auto 18px; opa
       <div class="dropdown">
         <a onclick="showPage('notice')">공지사항</a>
         <a onclick="showPage('faq')">자주 하는 질문</a>
-        <a onclick="showPage('gallery')">갤러리</a>
       </div>
     </li>
   </ul>
@@ -1088,7 +1067,6 @@ footer img { width: 52px; height: auto; display: block; margin: 0 auto 18px; opa
     <div class="m-sec-title">정보마당</div>
     <a onclick="go('notice')">공지사항</a>
     <a onclick="go('faq')">자주 하는 질문</a>
-    <a onclick="go('gallery')">갤러리</a>
   </div>
 </div>
 
@@ -1448,26 +1426,6 @@ footer img { width: 52px; height: auto; display: block; margin: 0 auto 18px; opa
   </div>
 </div>
 
-<!-- ═══════════ GALLERY ═══════════ -->
-<div class="page" id="page-gallery">
-  <div class="page-top">
-    <span class="pt-tag">Gallery</span>
-    <span class="pt-title">갤러리</span>
-    <div class="gold-bar"></div>
-    <span class="pt-sub">축제의 아름다운 순간들을 담아드립니다</span>
-  </div>
-  <div class="wrap">
-    <p style="text-align:center;padding:30px 0 24px;color:rgba(40,35,20,0.46);font-size:13px;letter-spacing:0.06em;">축제 사진은 행사 이후 순차적으로 업로드될 예정입니다</p>
-    <div class="gal-grid">
-      <div class="gal-item">🪷</div>
-      <div class="gal-item">🏮</div>
-      <div class="gal-item">🎋</div>
-      <div class="gal-item">🌸</div>
-      <div class="gal-item">🎐</div>
-      <div class="gal-item">🕌</div>
-    </div>
-  </div>
-</div>
 
 <!-- ═══ FOOTER ═══ -->
 <footer id="site-footer" style="display:none">
@@ -1545,7 +1503,7 @@ footer img { width: 52px; height: auto; display: block; margin: 0 auto 18px; opa
 
 
 <script>
-var PAGES = ['home','overview','schedule','venue','program','food','notice','faq','gallery'];
+var PAGES = ['home','overview','schedule','venue','program','food','notice','faq'];
 
 function showPage(id, pushState) {
   if (!PAGES.includes(id)) id = 'home';
